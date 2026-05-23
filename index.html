@@ -1,170 +1,60 @@
 <!DOCTYPE html>
-
-<!--
-  ╔══════════════════════════════════════════════════════════════╗
-  ║         Calculadora de Consumo Energético                   ║
-  ║  Calcula o consumo em kWh e o custo de eletrodomésticos.    ║
-  ╚══════════════════════════════════════════════════════════════╝
-
-  Estrutura de arquivos:
-    index.html         → marcação e estrutura (este arquivo)
-    styles/style.css   → estilos visuais
-    scripts/script.js  → lógica de cálculo
--->
-
-<!-- lang="pt-BR" → declara o idioma para leitores de tela e mecanismos de busca -->
 <html lang="pt-BR">
-
 <head>
 
-  <!-- Codificação UTF-8: garante exibição correta de acentos e caracteres especiais -->
   <meta charset="UTF-8">
+  <meta    name="theme-color"              content="#ffffff">
+  <meta    name="viewport"                 content="width=device-width, initial-scale=1.0">
+  <meta    name="google-site-verification" content="JHIhSJXzTWjiLvKi39hmhzdmLGLjc_2NpUtVe3mS7yc" />
 
-  <!-- Responsividade: impede zoom automático em dispositivos móveis -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Cor da barra de endereço em navegadores mobile (Chrome, Samsung Browser) -->
-  <meta name="theme-color" content="#ffffff">
-
-  <meta name="google-site-verification" content="JHIhSJXzTWjiLvKi39hmhzdmLGLjc_2NpUtVe3mS7yc" />
-
-<!-- ============================================================
-       🖼️ FAVICONS (ÍCONES DO SITE)
-       Ícones exibidos na aba do navegador, na tela inicial do
-       smartphone e em atalhos do Android/iOS.
-       Tamanhos: 32x32, 64x64, 192x192 (Android), 180x180 (iOS)
-       ============================================================ -->
-  <link rel="icon" type="image/png" sizes="32x32" href="images/pngs/favicons/favicon_32.png">
-  <link rel="icon" type="image/png" sizes="64x64" href="images/pngs/favicons/favicon_64.png">
+  <link rel="apple-touch-icon"                      href="images/pngs/favicons/favicon_180.png">
+  <link rel="icon" type="image/png" sizes="32x32"   href="images/pngs/favicons/favicon_32.png">
+  <link rel="icon" type="image/png" sizes="64x64"   href="images/pngs/favicons/favicon_64.png">
   <link rel="icon" type="image/png" sizes="192x192" href="images/pngs/favicons/favicon_192.png">
-  <link rel="apple-touch-icon" href="images/pngs/favicons/favicon_180.png">
 
-  <!-- Folha de estilos principal -->
-  <link rel="stylesheet" href="styles/style.css">
+  <style>
+    html, body {
 
-  <title>Calculadora de Consumo Energético</title>
+      margin:   0;
+      padding:  0;
+
+      overflow: hidden;
+    
+    }
+  </style>
+  <link rel="stylesheet" href="styles/calculator.css">
+
+  <title>CALC | The Definitive Calculator</title>
 
 </head>
-
 <body>
 
-  <!-- ── CABEÇALHO ──────────────────────────────────────────── -->
-  <header>
-    <h1>- Calculadora de Consumo Energético -</h1>
-  </header>
+  <main  class="conteudo">
+    <div id="calculator">
 
-  <!-- ── CONTEÚDO PRINCIPAL ─────────────────────────────────── -->
-  <main class="conteudo">
-
-    <!-- ── SEÇÃO 1: CONSUMO ───────────────────────────────────
-         Fórmula: Consumo (kWh) = Potência (W) × Tempo (min) / 60.000
-         (divide por 1.000 para converter W→kW, por 60 para min→h)
-    ──────────────────────────────────────────────────────────── -->
-    <section class="secao-calculadora" aria-labelledby="titulo-consumo">
-
-      <h2 id="titulo-consumo">
-        Calculadora de Consumo
-        <span class="formula">(Potência × Tempo) ÷ 1.000</span>
-      </h2>
-
-      <div class="dados">
-
-        <!-- Potência do aparelho em Watts -->
-        <label for="potencia">Potência do eletrodoméstico:</label>
-        <input
-          type="number"
-          id="potencia"
-          placeholder="Ex.: 1200 W"
-          min="0"
-          step="any"
-          aria-describedby="rConsumo"
-        >
-
-        <!-- Tempo de uso em minutos -->
-        <label for="tempo">Tempo de uso:</label>
-        <input
-          type="number"
-          id="tempo"
-          placeholder="Ex.: 45 min"
-          min="0"
-          step="any"
-          aria-describedby="rConsumo"
-        >
-
-        <!-- Área de resultado — preenchida via script.js -->
-        <p id="rConsumo" role="status" aria-live="polite"></p>
-
-        <button type="button" id="cBtn1">Calcular</button>
-
+      <div      id="screen"><h1>CALC | The Definitive Calculator</h1></div>
+      <div      id="buttons">
+        <div class="buttons" id="b0"><p>0</p></div>
+        <div class="buttons" id="b1"><p>1</p></div>
+        <div class="buttons" id="b2"><p>2</p></div>
+        <div class="buttons" id="b3"><p>3</p></div>
+        <div class="buttons" id="b4"><p>4</p></div>
+        <div class="buttons" id="b5"><p>5</p></div>
+        <div class="buttons" id="b6"><p>6</p></div>
+        <div class="buttons" id="b7"><p>7</p></div>
+        <div class="buttons" id="b8"><p>8</p></div>
+        <div class="buttons" id="b9"><p>9</p></div>
+        <div class="buttons" id="bPl"><p>+</p></div>
+        <div class="buttons" id="bMi"><p>-</p></div>
+        <div class="buttons" id="bDv"><p>/</p></div>
+        <div class="buttons" id="bMl"><p>x</p></div>
+        <div class="buttons" id="bMenu"><p>Mn</p></div>
       </div>
 
-    </section>
-
-    <!-- ── SEÇÃO 2: CUSTO ─────────────────────────────────────
-         Fórmula: Custo (R$) = Consumo (kWh) × Preço (R$/kWh)
-    ──────────────────────────────────────────────────────────── -->
-    <section class="secao-calculadora" aria-labelledby="titulo-custo">
-
-      <h2 id="titulo-custo">
-        Calculadora de Custo
-        <span class="formula">Consumo × Preço do kWh</span>
-      </h2>
-
-      <div class="dados">
-
-        <!-- Consumo em kWh (pode ser preenchido com o resultado da seção anterior) -->
-        <label for="consumo">Consumo do eletrodoméstico:</label>
-        <input
-          type="number"
-          id="consumo"
-          placeholder="Ex.: 0.9 kWh"
-          min="0"
-          step="any"
-          aria-describedby="rCusto"
-        >
-
-        <!-- Tarifa de energia da distribuidora local -->
-        <label for="preco">Tarifa da distribuidora (R$/kWh):</label>
-        <input
-          type="number"
-          id="preco"
-          placeholder="Ex.: R$ 0,75"
-          min="0"
-          step="any"
-          aria-describedby="rCusto"
-        >
-
-        <!-- Área de resultado — preenchida via script.js -->
-        <p id="rCusto" role="status" aria-live="polite"></p>
-
-        <button type="button" id="cBtn2">Calcular</button>
-
-      </div>
-
-    </section>
-
+    </div>
   </main>
-  <!-- ── FIM DO CONTEÚDO PRINCIPAL ──────────────────────────── -->
 
-  <!-- ── RODAPÉ ─────────────────────────────────────────────── -->
-  <footer>
-    <p>desenvolvido por <b>l4ss4r0t3</b></p>
-  </footer>
-
-  <!-- Script carregado ao final do body para garantir que o DOM
-       já está disponível quando o JS tentar acessar os elementos -->
   <script src="scripts/script.js"></script>
 
-<script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
-<script>
-  kofiWidgetOverlay.draw('l4ss4r0t3', {
-    'type': 'floating-chat',
-    'floating-chat.donateButton.text': 'Tip Me',
-    'floating-chat.donateButton.background-color': '#323842',
-    'floating-chat.donateButton.text-color': '#fff'
-  });
-</script>
-
 </body>
-
 </html>
