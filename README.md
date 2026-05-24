@@ -1,71 +1,47 @@
-# 💡 Calculadora de Consumo Energético
+# CALC | The Definitive Calculator
 
-[![Acesse o projeto](https://img.shields.io/badge/GitHub%20Pages-acesse%20aqui-blue?style=flat-square&logo=github)](https://l4ss4r0t3.github.io/ccenergetico)
+A lightweight, mobile-first calculator built with vanilla HTML, CSS, and JavaScript — no frameworks, no dependencies.
 
-Ferramenta web simples para estimar o consumo em kWh e o custo de eletrodomésticos com base na potência, no tempo de uso e na tarifa da distribuidora.
+## Features
 
-🔗 **Demo ao vivo:** [l4ss4r0t3.github.io/ccenergetico](https://l4ss4r0t3.github.io/ccenergetico)
+- Basic arithmetic: addition, subtraction, multiplication, and division
+- Decimal point support
+- Clear (AC) button to reset the input
+- Responsive layout designed for mobile screens
 
----
-
-## Funcionalidades
-
-- **Calculadora de Consumo** — converte Watts × minutos em kWh
-- **Calculadora de Custo** — multiplica o consumo pela tarifa local (R$/kWh)
-- Validação de entrada com mensagem de erro para campos vazios ou negativos
-- Resultado formatado no padrão brasileiro (vírgula decimal)
-
----
-
-## Fórmulas
+## Project Structure
 
 ```
-Consumo (kWh) = Potência (W) × Tempo (min) ÷ 60.000
-Custo   (R$)  = Consumo (kWh) × Tarifa (R$/kWh)
-```
-
----
-
-## Estrutura de arquivos
-
-```
-/
-├── index.html          → marcação e estrutura da página
+├── index.html
 ├── styles/
-│   └── style.css       → estilos visuais
-└── scripts/
-    └── script.js       → lógica de cálculo e validação
+│   └── calculator.css
+├── scripts/
+│   └── arithmetic.js
+└── images/
+    └── pngs/
+        └── favicons/
 ```
 
----
+## How It Works
 
-## Como usar
+The calculator is built around three simple steps:
 
-**Online (sem instalação)**
+1. **Listen** — Every button has a click event listener attached to it.
+2. **Show** — Clicked values are appended to a string and displayed on screen.
+3. **Resolve** — When `=` is pressed, the string is evaluated and the result is shown.
 
-Acesse diretamente pelo navegador: [l4ss4r0t3.github.io/ccenergetico](https://l4ss4r0t3.github.io/ccenergetico)
+## Technologies
 
-**Local**
+- HTML5
+- CSS3 (Grid layout, Flexbox)
+- JavaScript (Vanilla, no libraries)
 
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/l4ss4r0t3/ccenergetico.git
-   ```
-2. Abra `index.html` no navegador — nenhuma dependência externa ou servidor é necessário.
+## Running Locally
 
----
+No build step required. Just open `index.html` in any modern browser.
 
-## Tecnologias
+## Notes
 
-| Tecnologia | Uso |
-|---|---|
-| HTML5 | Estrutura semântica e acessibilidade |
-| CSS3 | Layout responsivo e estilo visual |
-| JavaScript (ES6+) | Lógica de cálculo e manipulação do DOM |
-| Google Fonts | Tipografia (Google Sans) |
-
----
-
-## Desenvolvido por
-
-**l4ss4r0t3**
+- The layout uses CSS Grid with a `2fr 1fr` split between the number pad and operators.
+- The screen occupies the top `20vh` and the button area fills the remaining `80vh`.
+- Expression evaluation uses the `Function` constructor with `"use strict"` mode.

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en-US">
 <head>
 
   <meta charset="UTF-8">
-  <meta    name="theme-color"              content="#ffffff">
-  <meta    name="viewport"                 content="width=device-width, initial-scale=1.0">
-  <meta    name="google-site-verification" content="JHIhSJXzTWjiLvKi39hmhzdmLGLjc_2NpUtVe3mS7yc" />
+  <meta name="theme-color"              content="#ffffff">
+  <meta name="viewport"                 content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="JHIhSJXzTWjiLvKi39hmhzdmLGLjc_2NpUtVe3mS7yc" />
 
   <link rel="apple-touch-icon"                      href="images/pngs/favicons/favicon_180.png">
   <link rel="icon" type="image/png" sizes="32x32"   href="images/pngs/favicons/favicon_32.png">
@@ -13,15 +13,36 @@
   <link rel="icon" type="image/png" sizes="192x192" href="images/pngs/favicons/favicon_192.png">
 
   <style>
+
     html, body {
 
-      margin:   0;
-      padding:  0;
+      margin:           0;
+      padding:          0;
 
-      overflow: hidden;
+      overflow:         hidden;
     
     }
+
+    header {
+
+      height:           5vh;
+      width:            100vw;
+
+      top:              0;
+      left:             0;
+
+      position:         absolute;
+      z-index:          1;
+
+      color:            white;
+
+      font-size:        15px;
+      text-align:       center;
+
+    }
+
   </style>
+
   <link rel="stylesheet" href="styles/calculator.css">
 
   <title>CALC | The Definitive Calculator</title>
@@ -29,32 +50,41 @@
 </head>
 <body>
 
-  <main  class="conteudo">
-    <div id="calculator">
+  <header>
+    <h1>CALC | The Definitive Calculator</h1>
+  </header>
 
-      <div      id="screen"><h1>CALC | The Definitive Calculator</h1></div>
+  <main         class="conteudo">
+    <div        id="calculator">
+
+      <div      id="screen"><p></p></div>
       <div      id="buttons">
-        <div class="buttons" id="b0"><p>0</p></div>
-        <div class="buttons" id="b1"><p>1</p></div>
-        <div class="buttons" id="b2"><p>2</p></div>
-        <div class="buttons" id="b3"><p>3</p></div>
-        <div class="buttons" id="b4"><p>4</p></div>
-        <div class="buttons" id="b5"><p>5</p></div>
-        <div class="buttons" id="b6"><p>6</p></div>
-        <div class="buttons" id="b7"><p>7</p></div>
-        <div class="buttons" id="b8"><p>8</p></div>
-        <div class="buttons" id="b9"><p>9</p></div>
-        <div class="buttons" id="bPl"><p>+</p></div>
-        <div class="buttons" id="bMi"><p>-</p></div>
-        <div class="buttons" id="bDv"><p>/</p></div>
-        <div class="buttons" id="bMl"><p>x</p></div>
-        <div class="buttons" id="bMenu"><p>Mn</p></div>
+        <div    id="numbers">
+          <button class="buttons">8</button>
+          <button class="buttons">9</button>
+          <button class="buttons">6</button>
+          <button class="buttons">7</button>
+          <button class="buttons">4</button>
+          <button class="buttons">5</button>
+          <button class="buttons">2</button>
+          <button class="buttons">3</button>
+          <button class="buttons">0</button>
+          <button class="buttons">1</button>
+        </div>
+        <div    id="operators">
+          <button class="buttons">/</button>
+          <button class="buttons">*</button>
+          <button class="buttons">-</button>
+          <button class="buttons">+</button>
+          <button class="buttons">.</button>
+          <button class="buttons" id="bEq">=</button>
+          <button class="buttons" id="AC">AC</button>
       </div>
 
     </div>
   </main>
 
-  <script src="scripts/script.js"></script>
+  <script       src="scripts/arithmetic.js"></script>
 
 </body>
 </html>
