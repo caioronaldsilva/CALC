@@ -1,6 +1,7 @@
-const screen = document.querySelector('#screen p');
-const bEq    = document.getElementById('bEq').textContent;
-const AC     = document.getElementById('AC').textContent;
+const screen    = document.querySelector('#screen p');
+const bEq       = document.getElementById('bEq').textContent;
+const AC        = document.getElementById('AC').textContent;
+const C        = document.getElementById('C').textContent;
 
 let numString   = '';
 
@@ -14,19 +15,24 @@ document.querySelectorAll('.buttons').forEach((itm) => {
 
 function showWhatAreClicked(button) {
 
-    if ( button.textContent === bEq ) {
+    if ( button.textContent        === bEq ) {
 
         arithmeticOperations (numString);
 
+    } else if ( button.textContent === C ) {
+
+        numString                  = numString.slice(numString.length - 1 > numString);
+        screen.innerHTML           = numString;
+
     } else if ( button.textContent === AC ) {
 
-        numString = '';
-        screen.innerHTML = numString;
+        numString                  = '';
+        screen.innerHTML           = numString;
 
     } else {
 
-        numString           = numString + button.textContent;
-        screen.innerHTML    = numString;
+        numString                  = numString + button.textContent;
+        screen.innerHTML           = numString;
 
     }
 };
@@ -35,7 +41,7 @@ function showWhatAreClicked(button) {
 
 function arithmeticOperations(equation) {
 
-    numString = Function(`"use strict"; return (${equation})`)();
+    numString        = Function(`"use strict"; return (${equation})`)();
     screen.innerHTML = numString;
 
 };
