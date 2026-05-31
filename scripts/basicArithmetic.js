@@ -1,7 +1,7 @@
 const screen    = document.querySelector('#screen p');
 const bEq       = document.getElementById('bEq').textContent;
-const AC        = document.getElementById('AC').textContent;
-const C        = document.getElementById('C').textContent;
+const aC        = document.getElementById('aC').textContent;
+const c         = document.getElementById('c').textContent;
 
 let numString   = '';
 
@@ -19,12 +19,12 @@ function showWhatAreClicked(button) {
 
         arithmeticOperations (numString);
 
-    } else if ( button.textContent === C ) {
+    } else if ( button.textContent === c ) {
 
         numString                  = numString.slice(numString.length - 1 > numString);
         screen.innerHTML           = numString;
 
-    } else if ( button.textContent === AC ) {
+    } else if ( button.textContent === aC ) {
 
         numString                  = '';
         screen.innerHTML           = numString;

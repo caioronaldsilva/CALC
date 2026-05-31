@@ -3,19 +3,21 @@
 <head>
 
   <meta charset="UTF-8">
-  <meta name="theme-color"              content="#ffffff">
+  <meta name="theme-color"              content="black">
   <meta name="viewport"                 content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="JHIhSJXzTWjiLvKi39hmhzdmLGLjc_2NpUtVe3mS7yc" />
 
-  <link rel="apple-touch-icon"                      href="images/pngs/favicons/favicon_180.png">
-  <link rel="icon" type="image/png" sizes="32x32"   href="images/pngs/favicons/favicon_32.png">
-  <link rel="icon" type="image/png" sizes="64x64"   href="images/pngs/favicons/favicon_64.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="images/pngs/favicons/favicon_192.png">
+  <link rel="apple-touch-icon"                      href="images/favicons/180x180.png">
+  <link rel="icon" type="image/png" sizes="32x32"   href="images/favicons/32x32.png">
+  <link rel="icon" type="image/png" sizes="64x64"   href="images/favicons/64x64.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/favicons/192x192.png">
 
   <style>
 
     * {
+
       box-sizing:       border-box;
+
     }
 
 
@@ -31,73 +33,64 @@
     
     }
 
-    header {
-
-      height:           5%;
-      width:            100%;
-
-      margin:           0;
-      padding:          0;
-      top:              0;
-      left:             0;
-
-      position:         absolute;
-      z-index:          1;
-
-      color:            white;
-
-      font-size:        1vh;
-      text-align:       center;
-
-    }
-
   </style>
 
-  <link rel="manifest" href="manifest.json" />
+  <link rel="manifest"   href="manifest.json" />
   <link rel="stylesheet" href="styles/calculator.css">
 
-  <title>CALC | The Definitive Calculator</title>
+  <title>CALC</title>
 
 </head>
 <body>
 
-  <header>
-    <h1>CALC | The Definitive Calculator</h1>
-  </header>
-
-  <main         class="conteudo">
+  <main         class="content">
     <div        id="calculator">
 
       <div      id="screen"><p></p></div>
       <div      id="buttons">
 
-        <div    id="numbers">
-          <button class="buttons">8</button>
-          <button class="buttons">9</button>
-          <button class="buttons">6</button>
-          <button class="buttons">7</button>
-          <button class="buttons">4</button>
-          <button class="buttons">5</button>
-          <button class="buttons">2</button>
-          <button class="buttons">3</button>
-          <button class="buttons">0</button>
-          <button class="buttons">1</button>
-        </div>
-        <div    id="operators">
-          <button class="buttons" id="AC">AC</button>
-          <button class="buttons" id="C">C</button>
-          <button class="buttons">/</button>
-          <button class="buttons">*</button>
-          <button class="buttons">-</button>
-          <button class="buttons">+</button>
-          <button class="buttons">.</button>
-          <button class="buttons" id="bEq">=</button>
-      </div>
+        <button class="buttons" id="aC">AC</button>
+        <button class="buttons" id="pC">%</button> 
+        <button class="buttons" id="aS">()</button>
+        <button class="buttons">/</button>
+        <button class="buttons">7</button>
+        <button class="buttons">8</button>
+        <button class="buttons">9</button>
+        <button class="buttons">*</button>
+        <button class="buttons">4</button>
+        <button class="buttons">5</button>
+        <button class="buttons">6</button>
+        <button class="buttons">-</button>
+        <button class="buttons">2</button>
+        <button class="buttons">1</button>
+        <button class="buttons">3</button>
+        <button class="buttons">+</button>
+        <button class="buttons">0</button>
+        <button class="buttons">.</button>
+        <button class="buttons" id="c">C</button>
+        <button class="buttons" id="bEq">=</button>
 
     </div>
   </main>
 
-  <script       src="scripts/arithmetic.js"></script>
+  <script       src="scripts/basicArithmetic.js"></script>
+  <script>
+
+    if ('serviceWorker' in navigator) {
+      
+      const promise = navigator.serviceWorker.register('serviceWorker.js');
+
+      promise.then((registration) => {
+        console.log('Service Worker registered:', registration);
+      });
+
+      promise.catch((error) => {
+        console.log('Service Worker error:', error);
+      });
+    
+    };
+
+  </script>
 
 </body>
 </html>

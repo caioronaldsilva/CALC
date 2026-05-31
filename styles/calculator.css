@@ -21,10 +21,6 @@
 
     font-size:             7vh;
 
-    border-style:          solid;
-    border-width:          1px;
-    border-radius:         1px;
-
     display:               flex;
     justify-content:       right;
     align-items:           center;
@@ -45,41 +41,19 @@
     top:                   20%;
     position:              absolute;
 
-    border-style:          solid;
-    border-width:          1px;
-    border-radius:         1px;
-
     display:               grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows:    1fr;
-
-}
-
-#numbers {
-
-    height:                80%;
-
-    display:               grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows:    repeat(5, 5fr);
-
-}
-
-#operators {
-
-    height:                80%;
-
-    display:               grid;
-    grid-template-columns: 1fr;
-    grid-template-rows:    repeat(8, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:    repeat(5, 1fr);
 
 }
 
 .buttons {
 
-    font-size:             5vh;
+    background-color:      black;
 
-    border-style:          solid;
-    border-width:          1px;
+    font-size:             5vh;
+    color:                 white;
+
+    border:                none;
 
 }
