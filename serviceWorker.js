@@ -1,4 +1,4 @@
-const cacheName  = '1.0';
+const cacheName  = '1.1';
 const cacheFiles = [
     './index.html',
     './styles/calculator.css',
@@ -10,14 +10,11 @@ self.addEventListener('install', (event) => {
     const cachePromise = caches.open(cacheName);
     
     event.waitUntil(
-
-    cachePromise.then((cache) => {
-        cache.addAll(cacheFiles);
-        console.log('Files cached!');
-    }).catch((error) => {
-        console.log('Error on cache:', error);
-    })
-    
+        cachePromise.then((cache) => {
+            cache.addAll(cacheFiles);
+        }).catch((error) => {
+            console.log('Error on cache:', error);
+        })
     );
     
 });
@@ -31,12 +28,31 @@ self.addEventListener('activate', (event) => {
             for (let keys of savedCacheKeys) {
                 if (keys != cacheName) {
                     caches.delete(keys);
-                    console.log('Catch Cache Keys Names with sucess!')
                 }
             }
-        }).catch((savedCacheKeys) => {
-            console.log('Error to catch Cache Keys Names!');
+        }).catch((error) => {
+            console.log('Error on cache:', error);
         })
     );
     
 });
+
+self.addEventListener('fetch', (event) => {
+    
+    event.respondWith(
+        caches.match(event.request).then((cachedResponse) => {
+            if (cachedResponse) {
+                return cachedResponse;
+            } else {
+                return fetch(event.request).then((response) => {
+                    const cacheClone = response.clone();
+                    caches.open(cacheName).then((cache) => {
+                        cache.put(event.request, cacheClone);
+                    });
+                    return response;
+                });
+            }
+        })
+    )
+    
+})
