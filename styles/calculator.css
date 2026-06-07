@@ -12,7 +12,7 @@
 
 #screen {
 
-    height:                20%;
+    height:                25%;
     width:                 100%;
 
     position:              absolute;
@@ -35,10 +35,10 @@
 
 #buttons {
 
-    height:                80%;
+    height:                75%;
     width:                 100%;
 
-    top:                   20%;
+    top:                   25%;
     position:              absolute;
 
     display:               grid;
