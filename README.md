@@ -1,4 +1,4 @@
-# CALC | The Definitive Calculator
+# CALC | Web Calculator
 
 A lightweight, mobile-first calculator built with vanilla HTML, CSS, and JavaScript — no frameworks, no dependencies.
 
@@ -8,19 +8,6 @@ A lightweight, mobile-first calculator built with vanilla HTML, CSS, and JavaScr
 - Decimal point support
 - Clear (AC) button to reset the input
 - Responsive layout designed for mobile screens
-
-## Project Structure
-
-```
-├── index.html
-├── styles/
-│   └── calculator.css
-├── scripts/
-│   └── arithmetic.js
-└── images/
-    └── pngs/
-        └── favicons/
-```
 
 ## How It Works
 
