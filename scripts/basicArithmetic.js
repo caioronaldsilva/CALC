@@ -5,7 +5,7 @@ const c         = document.getElementById('c').textContent;
 
 let numString   = '';
 
-// 1. THE CALC LISTEN WHAT ARE CLICKED
+// 1. THE CALC LISTEN WHICH BUTTON ARE CLICKED
 
 document.querySelectorAll('.buttons').forEach((itm) => {
     itm.addEventListener('click', ()                => showWhatAreClicked(itm));
