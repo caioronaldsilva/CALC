@@ -16,7 +16,8 @@ document.querySelectorAll('.buttons').forEach((itm) => {
 function showWhatAreClicked(button) {
 
     if ( button.textContent        === bEq ) {
-
+    
+        numString        = numString.replaceAll('x', '*');
         arithmeticOperations (numString);
 
     } else if ( button.textContent === c ) {
