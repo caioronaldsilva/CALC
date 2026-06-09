@@ -3,46 +3,48 @@ const bEq       = document.getElementById('bEq').textContent;
 const aC        = document.getElementById('aC').textContent;
 const c         = document.getElementById('c').textContent;
 
-let numString   = '';
-
-// 1. THE CALC LISTEN WHICH BUTTON ARE CLICKED
+let numString    = '0';
+screen.innerHTML = numString;
 
 document.querySelectorAll('.buttons').forEach((itm) => {
     itm.addEventListener('click', ()                => showWhatAreClicked(itm));
 });
 
-// 2. THE CALC SHOW WHAT ARE CLICKED
-
 function showWhatAreClicked(button) {
 
-    if ( button.textContent        === bEq ) {
+    if ( button.textContent === bEq ) {
     
-        numString        = numString.replaceAll('x', '*');
+        numString           = numString.replaceAll('x', '*');
         arithmeticOperations (numString);
 
     } else if ( button.textContent === c ) {
 
-        numString                  = numString.slice(numString.length - 1 > numString);
+        numString                  = numString.slice(0, -1);
+        if (numString === '') {
+            numString = '0';
+        }
         screen.innerHTML           = numString;
 
     } else if ( button.textContent === aC ) {
 
-        numString                  = '';
+        numString                  = '0';
         screen.innerHTML           = numString;
 
     } else {
 
-        numString                  = numString + button.textContent;
-        screen.innerHTML           = numString;
+        if (numString === '0') {
+            numString = '';
+        }
+        numString        = numString + button.textContent;
+        screen.innerHTML = numString;
 
     }
 };
 
-// 3. THE CALC RESOLVE WHAT ARE SHOWED
-
 function arithmeticOperations(equation) {
 
     numString        = Function(`"use strict"; return (${equation})`)();
+    numString        = numString.toString();
     screen.innerHTML = numString;
 
 };
