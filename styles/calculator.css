@@ -58,6 +58,17 @@
 
 }
 
+.menuBtn {
+
+    background-color:      black;
+
+    font-size:             5vh;
+    color:                 white;
+
+    border:                none;
+    
+}
+
 #aC {
 
     color: #ff3131;
