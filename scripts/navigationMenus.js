@@ -16,8 +16,26 @@ popupX.addEventListener('click', () => {
 
 });
 
+function themeSwitcher() {
+
+    if (body.style.filter == '') {
+
+        console.log(body.style.filter);
+
+        body.style.filter = 'invert(100%)';
+        aC.style.filter   = 'invert(100%)';
+
+    } else if (body.style.filter == 'invert(100%)') {
+
+        body.style.filter = '';
+        aC.style.filter   = '';
+
+    }
+
+};
+
 themeBtn.addEventListener('click', () => {
 
-    body.style.filter = 'invert(100%)';
+    themeSwitcher();
 
 });
