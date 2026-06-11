@@ -41,6 +41,29 @@
 
   <title>CALC</title>
 
+  <script>
+
+    window.addEventListener('DOMContentLoaded', () => {
+
+      const bodyFirstLoad        = document.getElementById('body');
+      const themeColorFirstLoad  = document.querySelector('meta[name="theme-color"]');
+
+      if (localStorage.getItem('themeChoosed') === 'white') {
+
+        bodyFirstLoad.style.filter = 'invert(100%)';
+        themeColorFirstLoad.setAttribute('content', 'white');
+
+      } else if (localStorage.getItem('themeChoosed') === 'black') {
+
+        bodyFirstLoad.style.filter = '';
+        themeColorFirstLoad.setAttribute('content', 'black');
+
+      }
+
+    });
+
+  </script>
+
 </head>
 <body id="body">
 
