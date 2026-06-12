@@ -1,4 +1,4 @@
-const cacheName  = '1.7';
+const cacheName  = '1.8';
 const cacheFiles = [
     './index.html',
     './styles/calculator.css',
