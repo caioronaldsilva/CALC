@@ -1,4 +1,4 @@
-name: Deploy CALC Natively
+name: Deploy CALC via SCP
 
 on:
   push:
@@ -12,22 +12,13 @@ jobs:
     steps:
       - name: Checkout repository code
         uses: actions/checkout@v4
-
-      - name: Execute remote SSH deployment commands
-        uses: appleboy/ssh-action@v1.0.3
+      - name: Copy files via SSH/SCP to Oracle VM
+        uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: 22
-          script: |
-            if [ ! -d "~/CALC" ]; then
-              git clone git@github.com:caioronaldsilva/CALC.git ~/CALC
-            fi
-            
-            cd ~/CALC
-            git pull origin main
-            
-            npm install --production
-            
-            pm2 restart calc-app || pm2 start server.js --name "calc-app"
+          source: "./*" 
+          target: "/var/www/calc"
+          strip_components: 0
