@@ -6,11 +6,11 @@
     background-color: white;
 
     position: absolute;
-    top:      5dvh;
+    top:      calc(1dvh + 70px);
     left:     5vw;
 
     width:    90vw;
-    height:   90dvh;
+    height:   calc(95dvh - 70px);
 
     overflow: auto;
 
