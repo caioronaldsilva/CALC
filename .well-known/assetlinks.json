@@ -2,7 +2,7 @@
   "relation": ["delegate_permission/common.handle_all_urls"],
   "target": {
     "namespace": "android_app",
-    "package_name": "com.calc.app",
+    "package_name": "lat.calc.app",
     "sha256_cert_fingerprints": ["28:83:DE:62:A4:A4:DB:51:5C:B4:77:17:71:D1:7D:D1:24:64:0C:29:82:E5:DE:C2:80:F3:90:FF:A6:E2:6C:D8"]
   }
 }]
