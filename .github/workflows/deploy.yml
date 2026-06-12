@@ -1,4 +1,4 @@
-name: Deploy CALC to Oracle Cloud
+name: Deploy CALC Natively
 
 on:
   push:
@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout the repository code
+      - name: Checkout repository code
         uses: actions/checkout@v4
 
-      - name: Deploy via SSH execution
+      - name: Execute remote SSH deployment commands
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.SERVER_IP }}
@@ -21,10 +21,13 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: 22
           script: |
-            cd ~/CALC
+            if [ ! -d "~/CALC" ]; then
+              git clone git@github.com:caioronaldsilva/CALC.git ~/CALC
+            fi
             
+            cd ~/CALC
             git pull origin main
             
-            docker compose up -d --build
+            npm install --production
             
-            docker image prune -f
+            pm2 restart calc-app || pm2 start server.js --name "calc-app"
