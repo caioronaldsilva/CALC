@@ -3,18 +3,23 @@
     --text: #000000;   
 }
 
-[data-theme="light"] {
+[data-theme="white"] {
     --bg:   #FFFFFF;
     --text: #000000;
 }
 
-[data-theme="dark"] {
+[data-theme="black"] {
     --bg:   #000000;
     --text: #FFFFFF;
 }
 
 [data-theme="blue"] {
     --bg:   #ADD8E6;
+    --text: #FFFFFF;
+}
+
+[data-theme="green"] {
+    --bg:   #90EE90;
     --text: #FFFFFF;
 }
 
