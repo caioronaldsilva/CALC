@@ -1,0 +1,29 @@
+:root {
+    --bg:   #FFFFFF;
+    --text: #000000;   
+}
+
+[data-theme="light"] {
+    --bg:   #FFFFFF;
+    --text: #000000;
+}
+
+[data-theme="dark"] {
+    --bg:   #000000;
+    --text: #FFFFFF;
+}
+
+[data-theme="blue"] {
+    --bg:   #ADD8E6;
+    --text: #FFFFFF;
+}
+
+[data-theme="pink"] {
+    --bg:   #FFB6C1;
+    --text: #FFFFFF;
+}
+
+[data-theme="purple"] {
+    --bg:   #CBC3E3;
+    --text: #FFFFFF;
+}

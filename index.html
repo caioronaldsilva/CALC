@@ -12,21 +12,21 @@
   <link rel="icon" type="image/png" sizes="64x64"   href="images/favicons/64x64.png">
   <link rel="icon" type="image/png" sizes="192x192" href="images/favicons/192x192.png">
 
-<meta name="description" content="CALC is a free web calculator. Simple, fast and easy to use.">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://calc.lat/">
+  <meta name="description" content="CALC is a free web calculator. Simple, fast and easy to use.">
+  <meta name="robots"      content="index, follow">
+  <link rel="canonical"    href="https://calc.lat/">
 
-<meta property="og:type"        content="website">
-<meta property="og:url"         content="https://calc.lat/">
-<meta property="og:title"       content="CALC | Web Calculator">
-<meta property="og:description" content="CALC is a free web calculator. Simple, fast and easy to use.">
-<meta property="og:image"       content="https://calc.lat/images/favicons/512x512.png">
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://calc.lat/">
+  <meta property="og:title"       content="CALC | Web Calculator">
+  <meta property="og:description" content="CALC is a free web calculator. Simple, fast and easy to use.">
+  <meta property="og:image"       content="https://calc.lat/images/favicons/512x512.png">
 
-<meta name="twitter:card"        content="summary">
-<meta name="twitter:url"         content="https://calc.lat/">
-<meta name="twitter:title"       content="CALC | Web Calculator">
-<meta name="twitter:description" content="CALC is a free web calculator. Simple, fast and easy to use.">
-<meta name="twitter:image"       content="https://calc.lat/images/favicons/512x512.png">
+  <meta name="twitter:card"        content="summary">
+  <meta name="twitter:url"         content="https://calc.lat/">
+  <meta name="twitter:title"       content="CALC | Web Calculator">
+  <meta name="twitter:description" content="CALC is a free web calculator. Simple, fast and easy to use.">
+  <meta name="twitter:image"       content="https://calc.lat/images/favicons/512x512.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,6 +51,9 @@
 
       overflow: hidden;
 
+      background-color: var(--bg);
+      color:            var(--text);
+
       font-family: "Google Sans", sans-serif;
     
     }
@@ -58,10 +61,12 @@
   </style>
 
   <link rel="manifest"   href="manifest.json" />
-  <link rel="stylesheet" href="styles/popups.css">
-  <link rel="stylesheet" href="styles/calculator.css">
 
-  <title>CALC</title>
+  <link rel="stylesheet" href="css/popups.css">
+  <link rel="stylesheet" href="css/calculator.css">
+  <link rel="stylesheet" href="css/colorSchemes.css">
+
+  <title>CALC | Digital Calculator</title>
 
   <script>
 
@@ -71,15 +76,13 @@
       const themeColorFirstLoad  = document.querySelector('meta[name="theme-color"]');
 
       if (localStorage.getItem('themeChoosed') === 'white') {
-
         bodyFirstLoad.style.filter = 'invert(100%)';
         themeColorFirstLoad.setAttribute('content', 'white');
-
-      } else if (localStorage.getItem('themeChoosed') === 'black') {
-
+      }
+      
+      else if (localStorage.getItem('themeChoosed') === 'black') {
         bodyFirstLoad.style.filter = '';
         themeColorFirstLoad.setAttribute('content', 'black');
-
       }
 
     });
@@ -87,20 +90,22 @@
   </script>
 
 </head>
+
 <header>
 
   <h1>CALC | Web Calculator</h1>
   <button class="menuBtn"><img src="images/buttons/burguer.svg"></button>
 
 </header>
-<body id="body">
 
+<body id="body">
   <main         class="content">
+
     <div        id="calculator">
 
       <div      id="screen"><p></p></div>
-      <div      id="buttons">
 
+      <div      id="buttons">
         <button class="buttons" id="aC">AC</button>
         <button class="buttons" id="pC">%</button>
         <button class="buttons" id="aS">()</button>
@@ -121,18 +126,18 @@
         <button class="buttons">.</button>
         <button class="buttons" id="c">C</button>
         <button class="buttons" id="bEq">=</button>
-
     </div>
+
   </main>
 
-  <div class="popup">
+  <div class="popup" id="mainPopup">
     
     <div class="popup-header">
+
       <div class="popup-header-title">
         <h2>Menu</h2>
       </div>
-      <div class="popup-header-button">
-      </div>
+
     </div>
 
     <div class="popup-content">
@@ -141,9 +146,22 @@
 
   </div>
 
-  <script src="scripts/basicArithmetic.js"></script>
-  <script src="scripts/buttonsCommands.js"></script>
-  <script src="scripts/navigationMenus.js"></script>
+  <div class="colorSchemes" id="colorsPopup">
+
+    <div class="popup-header">
+      <h2>Theme Colors</h2>
+    </div>
+
+    <div class="popup-content">
+    </div>
+
+  </div>
+
+  <script src="javascript/colorSchemes.js"></script>
+  <script src="javascript/basicArithmetic.js"></script>
+  <script src="javascript/buttonsCommands.js"></script>
+  <script src="javascript/navigationMenus.js"></script>
+  
   <script>
 
     if ('serviceWorker' in navigator) {
