@@ -35,9 +35,7 @@
   <style>
 
     * {
-
-      box-sizing: border-box;
-
+      box-sizing: border-box; <!-- WIDTH AND HEIGHT INCLUDES PADDING AND BORDER -->
     }
 
 
@@ -94,7 +92,7 @@
 <header>
 
   <h1>CALC | Digital Calculator</h1>
-  <button class="menuBtn"><img src="images/buttons/burguer.svg"></button>
+  <button class="menuBtn" onclick="openPopup('menu')"><img src="images/buttons/burguer.svg"></button>
 
 </header>
 
@@ -141,7 +139,7 @@
     </div>
 
     <div class="popup-content">
-      <button id="themeBtn">Change Colors</button>
+      <button id="themeBtn" onclick="openPopup('colorCards')">Change Colors</button>
     </div>
 
   </div>
