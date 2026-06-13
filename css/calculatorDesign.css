@@ -8,8 +8,7 @@ header {
     left: 0;
     top:  0;
 
-    background-color: black;
-    color:            white;
+    background-color: var(--bg);
 
     z-index: 2;
 
@@ -22,7 +21,7 @@ h1 {
 
 }
 
-.menuBtn {
+.menuButton {
 
     height: 70px;
     width:  70px;
@@ -40,10 +39,11 @@ h1 {
     border: none;
 
     cursor: pointer;
+    transition: transform 0.3s ease;
 
 }
 
-.menuBtn img {
+.menuButton img {
 
     height: 70px;
     width:  70px;
@@ -59,8 +59,7 @@ h1 {
     
     top: 70px;
 
-    background-color: black;
-    color:            white;
+    background-color: var(--bg);
 
 }
 
@@ -71,7 +70,7 @@ h1 {
 
     position: absolute;
 
-    background-color: black;
+    background-color: var(--bg);
 
     font-size: 7vh;
 
@@ -103,11 +102,11 @@ h1 {
 
 .buttons {
 
-    background-color: black;
+    background-color: var(--bg);
+    color:            var(--text);
 
-    font-size:        5vh;
-    color:            white;
+    font-size: 5vh;
 
-    border:           none;
+    border: none;
 
 }

@@ -1,0 +1,142 @@
+.popup {
+
+    display:       none;
+    border-radius: 10px;
+
+    background-color: #FFFFFF;
+    color:            #000000;
+
+    border:  1px solid;
+    border-radius: 3px;
+
+    position: absolute;
+    top:      calc(1dvh + 70px);
+    left:     5vw;
+
+    width:    90vw;
+    height:   calc(95dvh - 70px);
+
+    overflow: auto;
+
+    z-index:  3;
+
+}
+
+.popup::-webkit-scrollbar {
+
+    display: none;
+
+}
+
+.popup-header {
+
+    position:         sticky;
+
+    width:  100%;
+    height: 50px;
+
+    top:    0;
+    left:   0;
+
+    background-color: #FFFFFF;
+    color:            #000000;
+
+    box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.3);
+
+}
+
+.popup-header-title {
+
+    position: absolute;
+
+    top:    0;
+    left:   5%;
+
+    width:  calc(90% - 50px);
+    height: 50px;
+
+    display:     flex;
+    align-items: center;
+
+    text-align: left;
+
+}
+
+.popup-content {
+
+    width:         90%;
+
+    margin-top:    20px;
+    margin-bottom: 5%;
+    margin-left:   5%;
+
+    text-align:    center;
+
+}
+
+.popup button {
+
+    width:  90%;
+    height: 60px;
+
+    font-size: 3vh;
+
+    left: 5%;
+
+    background-color: #FFFFFF;
+    color:            #000000;
+    
+    border-width:  1px;
+    border-radius: 3px;
+
+}
+
+.popup-content img {
+
+    width:  100%;
+    height: auto;
+
+    border-radius: 5px;
+
+}
+
+.colorCards {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:    1fr 1fr;
+
+}
+
+.colorCard {
+
+    width:  90%;
+    aspect-ratio: 3 / 4;
+
+    margin: 5%;
+
+    cursor: pointer;
+
+    border:  1px solid;
+    border-radius: 3px;
+
+}
+
+.colorCard h3 {
+
+    font-size: 3vh;
+
+}
+
+.color {
+
+    width:  90%;
+    aspect-ratio: 1 / 1;
+
+    margin: 5%;
+
+    border:  1px solid;
+    border-radius: 3px;
+
+}

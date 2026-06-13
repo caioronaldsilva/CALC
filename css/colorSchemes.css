@@ -15,20 +15,20 @@
 
 [data-theme="blue"] {
     --bg:   #ADD8E6;
-    --text: #FFFFFF;
+    --text: #000000;
 }
 
 [data-theme="green"] {
     --bg:   #90EE90;
-    --text: #FFFFFF;
+    --text: #000000;
 }
 
 [data-theme="pink"] {
     --bg:   #FFB6C1;
-    --text: #FFFFFF;
+    --text: #000000;
 }
 
 [data-theme="purple"] {
     --bg:   #CBC3E3;
-    --text: #FFFFFF;
+    --text: #000000;
 }

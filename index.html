@@ -35,7 +35,7 @@
   <style>
 
     * {
-      box-sizing: border-box; <!-- WIDTH AND HEIGHT INCLUDES PADDING AND BORDER -->
+      box-sizing: border-box; /* WIDTH AND HEIGHT INCLUDES PADDING AND BORDER */
     }
 
 
@@ -60,8 +60,8 @@
 
   <link rel="manifest"   href="manifest.json" />
 
-  <link rel="stylesheet" href="css/popups.css">
-  <link rel="stylesheet" href="css/calculator.css">
+  <link rel="stylesheet" href="css/popupStyle.css">
+  <link rel="stylesheet" href="css/calculatorDesign.css">
   <link rel="stylesheet" href="css/colorSchemes.css">
 
   <title>CALC | Digital Calculator</title>
@@ -70,20 +70,10 @@
 
     window.addEventListener('DOMContentLoaded', () => {
 
-      const bodyFirstLoad        = document.getElementById('body');
-      const themeColorFirstLoad  = document.querySelector('meta[name="theme-color"]');
+      const colorScheme = localStorage.getItem('colorScheme');
+      setColors(colorScheme);
 
-      if (localStorage.getItem('themeChoosed') === 'white') {
-        bodyFirstLoad.style.filter = 'invert(100%)';
-        themeColorFirstLoad.setAttribute('content', 'white');
-      }
-      
-      else if (localStorage.getItem('themeChoosed') === 'black') {
-        bodyFirstLoad.style.filter = '';
-        themeColorFirstLoad.setAttribute('content', 'black');
-      }
-
-    });
+    })
 
   </script>
 
@@ -92,7 +82,7 @@
 <header>
 
   <h1>CALC | Digital Calculator</h1>
-  <button class="menuBtn" onclick="openPopup('menu')"><img src="images/buttons/burguer.svg"></button>
+  <button class="menuButton" onclick="openPopup('mainMenu', event)"><img src="images/buttons/burguer.svg"></button>
 
 </header>
 
@@ -128,7 +118,7 @@
 
   </main>
 
-  <div class="popup" id="mainPopup">
+  <div class="popup" id="mainMenu">
     
     <div class="popup-header">
 
@@ -139,45 +129,49 @@
     </div>
 
     <div class="popup-content">
-      <button id="themeBtn" onclick="openPopup('colorCards')">Change Colors</button>
+      <button onclick="openPopup('colorCards', event)">Color Schemes</button>
     </div>
 
   </div>
 
-  <div class="colorSchemes" id="popup">
+  <div class="popup" id="colorCards">
 
     <div class="popup-header">
-      <h2>Color Schemes</h2>
+
+      <div class="popup-header-title">
+        <h2>Color Schemes</h2>
+      </div>
+
     </div>
 
-    <div class="popup-content">
+    <div class="popup-content colorCards">
       
-      <div class="colorCard">
+      <div class="colorCard" onclick="setColors('white')">
         <div class="color" style="background-color: #FFFFFF;"></div>
         <h3>White</h3>
       </div>
       
-      <div class="colorCard">
+      <div class="colorCard" onclick="setColors('black')">
         <div class="color" style="background-color: #000000;"></div>
         <h3>Black</h3>
       </div>
       
-      <div class="colorCard">
+      <div class="colorCard" onclick="setColors('blue')">
         <div class="color" style="background-color: #ADD8E6;"></div>
         <h3>Light-Blue</h3>
       </div>
       
-      <div class="colorCard">
+      <div class="colorCard" onclick="setColors('green')">
         <div class="color" style="background-color: #90EE90;"></div>
         <h3>Light-Green</h3>
       </div>
       
-      <div class="colorCard">
+      <div class="colorCard" onclick="setColors('pink')">
         <div class="color" style="background-color: #FFB6C1;"></div>
         <h3>Light-Pink</h3>
       </div>
       
-      <div class="colorCard">
+      <div class="colorCard" onclick="setColors('purple')">
         <div class="color" style="background-color: #CBC3E3;"></div>
         <h3>Light-Purple</h3>
       </div>
@@ -186,10 +180,10 @@
 
   </div>
 
-  <script src="javascript/colorSchemes.js"></script>
+  <script src="javascript/themeControl.js"></script>
   <script src="javascript/basicArithmetic.js"></script>
-  <script src="javascript/buttonsCommands.js"></script>
-  <script src="javascript/navigationMenus.js"></script>
+  <script src="javascript/keyMapping.js"></script>
+  <script src="javascript/popupControl.js"></script>
   
   <script>
 
